@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+
+        function memoize(fn) {
+            fn.cache = fn.cache || {};
+            return function fx() {
+                // todo: finsh memoization and ask BP for the repo link
+                // arguments [10]
+
+
+                // convert the arguments into a key by looping over all the arguments
+                // hash function | arguments | single string
+
+                var key = '', value;
+
+                // fn(10), fn.apply(null, [10])
+
+                if (!(key in fn.cache)) {
+                    value = fn.apply(null, arguments);
+                    fn.cache[key] = value;
+                }
+
+                return fn.cache[]
+            };
+        }
+
+        function factorial(num) {
+            console.log('calculating factorial for ' + num);
+            if (num <= 1) return 1;
+            else return num * factorial(num - 1);
+        }
+        var mfactorial = memoize(factorial);
+
+        mfactorial(10);
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

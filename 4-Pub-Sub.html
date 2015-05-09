@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+
+        function Publisher() {
+            this.events = {
+                'magazine_published': [],
+                'new_documentary': []
+            };
+        }
+        Publisher.prototype.publish = function (event) {
+            this.events[event].forEach(function (fn) {
+                fn();
+            });
+        };
+
+        function Subscriber(name) {
+            this.name = name;
+        }
+        Subscriber.prototype.subscribe = function (publisher, event_name, fn) {
+            publisher.events[event_name].push(fn.bind(this));
+        };
+
+        var national_geographic = new Publisher();
+        var chris = new Subscriber('Chris');
+        var lakshmi = new Subscriber('Lakshmi');
+        chris.subscribe(national_geographic, 'magazine_published', function () {
+            console.log('send copy to ' + this.name);
+        });
+        lakshmi.subscribe(national_geographic, 'new_documentary', function () {
+            console.log('send email notification with link to documentary stream to ' + this.name);
+        });
+
+
+        national_geographic.publish('magazine_published');
+        national_geographic.publish('new_documentary');
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

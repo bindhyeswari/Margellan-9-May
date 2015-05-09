@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+
+        function factorial(num) {
+            console.log('calculating factorial for ' + num);
+            if (num <= 1) return 1;
+            else return num * factorial(num - 1);
+        }
+
+        // console.log(factorial(10));
+
+        mfactorial.cache = { 1: 1 };
+        function mfactorial(num) {
+            // check if key exists in cache
+            // else generate the value for the key
+            // return the value
+
+            if (num in mfactorial.cache) {
+                return mfactorial.cache[num];
+            } else {
+                console.log('calculating factorial for ' + num);
+                mfactorial.cache[num] = num * mfactorial(num - 1);
+                return mfactorial.cache[num];
+            }
+        }
+
+        console.log(mfactorial(10));
+        console.log(mfactorial.cache);
+        console.log(mfactorial(10));
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
