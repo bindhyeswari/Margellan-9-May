@@ -2,7 +2,7 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title></title>
+    <title>Simple Singleton</title>
     <script>
 
         function Security() {
@@ -13,6 +13,8 @@
         var a = new Security();
         var b = new Security();
         console.log(a === b);
+
+        // todo: Indentify scenarios where this will fail to do the job (behave as a singleton)
 
     </script>
 </head>
