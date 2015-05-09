@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+
+        function Security() {
+            Security.instance = Security.instance || {};
+            return Security.instance;
+        }
+
+        var a = new Security();
+        var b = new Security();
+        console.log(a === b);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
